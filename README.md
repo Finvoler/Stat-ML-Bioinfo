@@ -268,15 +268,36 @@ The project implements key results from statistical learning theory:
 
 **Lasso (L1 Regularization)** — sparse biomarker selection:
 
-$$\hat{\beta}^{\text{Lasso}} = \arg\min_{\beta} \left\{ \|Y - X\beta\|_2^2 + \lambda\|\beta\|_1 \right\}$$
+$$
+\hat{\beta}^{\mathrm{Lasso}}
+=
+\arg\min_{\beta}
+\bigl\{ \lVert Y - X\beta \rVert_2^2 + \lambda \lVert \beta \rVert_1 \bigr\}
+$$
 
 **DeepSurv Loss** — negative log partial likelihood with L2 regularization:
 
-$$\mathcal{L}(\theta) = -\sum_{i \in \mathcal{E}} \left[ f_\theta(x_i) - \log \sum_{j \in \mathcal{R}(t_i)} \exp(f_\theta(x_j)) \right] + \lambda\|\theta\|_2^2$$
+$$
+\mathcal{L}(\theta)
+=
+-\sum_{i \in \mathcal{E}}
+\left(
+f_\theta(x_i)
+-
+\log \sum_{j \in \mathcal{R}(t_i)} \exp\bigl(f_\theta(x_j)\bigr)
+\right)
++ \lambda \lVert \theta \rVert_2^2
+$$
 
 **SHAP Shapley Value** — fair feature attribution via cooperative game theory:
 
-$$\phi_j = \sum_{S \subseteq F \setminus \{j\}} \frac{|S|!(|F|-|S|-1)!}{|F|!} \left[ f(S \cup \{j\}) - f(S) \right]$$
+$$
+\phi_j
+=
+\sum_{S \subseteq F \setminus \{j\}}
+\frac{|S|!\,(|F|-|S|-1)!}{|F|!}
+\bigl( f(S \cup \{j\}) - f(S) \bigr)
+$$
 
 ---
 
